@@ -1,0 +1,48 @@
+<div class="container">
+  <div *ngFor="let data of dummyData">
+    <div *ngIf="data.Answertype === 1" class="form">
+      <div>
+        {{ data.Title }}
+      </div>
+      <div>
+        <input type="text" value="{{data.AnswerValues}}">
+      </div>
+    </div>
+
+    <div *ngIf="data.Answertype === 2" class="form">
+      <div>
+        {{ data.Title }}
+      </div>
+      <div>
+        <div *ngFor="let val of data.AnswerValues">
+          <label>{{ val.Name }}</label>
+          <input type="checkbox" value="{{ val.Name }}">
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="data.Answertype === 3" class="form">
+      <div>
+        {{ data.Title }}
+      </div>
+      <div>
+        <div *ngFor="let val of data.AnswerValues">
+          <label>{{ val.Name }}</label>
+          <input type="radio" value="{{ val.Name }}">
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="data.Answertype === 4" class="form">
+      <div>
+        {{ data.Title }}
+      </div>
+      <div>
+        <select>
+          <option value="" selected>-- Select --</option>
+          <option *ngFor="let val of data.AnswerValues" value="{{ val.Name }}">{{ val.Name }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
